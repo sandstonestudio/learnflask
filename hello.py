@@ -11,6 +11,7 @@ from flask import session, redirect, url_for
 from flask import flash
 import os
 from flask_sqlalchemy import SQLAlchemy
+from flask_script import Shell
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
@@ -51,6 +52,10 @@ class User(db.Model):
 class NameForm(FlaskForm):
     name = StringField('What is your name?', validators=[Required()])
     submit = SubmitField('Submit')
+
+def make_shell_context():
+    return dict(app=app, db=db, User=User, Role=Role)
+manager.add_command("shell", Shell(make_context=make_shell_context))
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
