@@ -1,6 +1,9 @@
 # Packages
 __pycache__
 
+# SQLite databases
+*.sqlite
+
 # Virtual environment
 venv
 
