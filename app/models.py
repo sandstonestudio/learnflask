@@ -225,6 +225,12 @@ class User(UserMixin, db.Model):
         f = self.followed.filter_by(followed_id=user.id).first()
         if f:
             db.session.delete(f)
+    
+    @property
+    def followed_posts(self):
+        return Post.query.join(Follow, 
+                               Follow.followed_id == Post.author_id
+                              ).filter(Follow.follower_id == self.id)
 
     def __repr__(self):
         return '<User %r>' % self.username
