@@ -4,3 +4,4 @@ Pygments==2.2.0
 colorama==0.3.9
 httpie==0.9.9
 requests==2.18.4
+coverage==4.5.1

@@ -12,3 +12,9 @@ screenshots
 
 # VS Code folder
 .vscode
+
+# Unit test / coverage reports
+.coverage
+.tox
+nosetests.xml
+tmp
